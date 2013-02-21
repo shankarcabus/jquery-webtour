@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Webtour Plugin - Demo</title>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: {
+          families: [ 'Gloria+Hallelujah::latin' ]
+        }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+
+    <script src="../jquery.webtour.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../jquery.webtour.css">
+
+    <style type="text/css">
+      body {
+        background: #eee;
+      }
+
+      #step1, #step2 {
+        margin: 50px 90px;
+        padding: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" id="step1">Step 1</a>
+    <a href="#" id="step2">Step 2</a>
+
+    <script type="text/javascript">
+      $('#step1').tour({
+        'text'                : 'The <b>first</b> step appears here',
+        'arrowImage'          : 'images/a3.png',
+        'arrowOrigin'         : 'TL',
+        'arrowTarget'         : 'B',
+        'textOrigin'          : 'L',
+        'textTarget'          : 'BR',
+        'textWidth'           : 270
+      });
+
+      // All defaults properties
+      $('#step2').tour({
+        'text'          : 'Lorem Ipsum', // Text of tour
+        'arrowImage'    : 'images/a2.png', //! NOT DEFAULT !
+        'arrowOrigin'   : 'T', // Spot of the arrow origin
+        'arrowTarget'   : 'B', // Spot of the arrow target
+        'arrowPadding'  :  0, // Padding to arrow
+        'textOrigin'    : 'T', // Spot of the text
+        'textTarget'    : 'BL', // Spot of the text target
+        'textWidth'     : 200, // Width of the text
+        'textPadding'   : 0, // Text Padding
+        'padding'       : 0,  // Padding of element
+        'button'        : {
+          'clss'   : 'btn btn-primary', // Button class
+          'text'    : 'Ok, got it' // Button text
+        },
+        'callback'      : function(){}, // Callback of button
+        'lock'          : true // Lock element actions
+
+      });
+    </script>
+  </body>
+
+</html>
+

@@ -1,0 +1,32 @@
+/*-------------------- TOUR ---------------------------*/
+html, body {
+  height: 100%;
+}
+.mask {
+  position: absolute;
+  z-index: 100000;
+  background-color: #000;
+  filter: alpha(opacity=80);
+  -khtml-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+}
+.tour .tour-arrow,
+.tour .tour-text {
+  position: absolute;
+  z-index: 100001;
+}
+.tour .tour-text {
+  margin: 10px;
+}
+.tour .tour-text p {
+  color: white;
+  font: normal 21px/170% 'Gloria Hallelujah', cursive;
+}
+.tour .tour-text p .smile {
+  font-family: 'Arial';
+}
+.tour .tour-text .btn {
+  display: block;
+  margin-top: 10px;
+}
