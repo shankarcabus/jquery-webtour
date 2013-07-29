@@ -1,4 +1,4 @@
-/*! jQuery Webtour - v0.1.0 - 2013-07-27
+/*! jQuery Webtour - v0.1.0 - 2013-07-29
 * https://github.com/Helielson/jquery-webtour
 * Copyright (c) 2013 Helielson; Licensed MIT */
 ;(function ( $, window, document, undefined ) {
