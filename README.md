@@ -14,7 +14,8 @@ In your web page:
 ```html
 <script src="js/libs/jquery/jquery.js"></script>
 <script src="src/jquery.webtour.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/jquery.webtour.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.webt   
+our.css">
 
 <style type="text/css">
   body {

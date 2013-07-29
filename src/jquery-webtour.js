@@ -55,7 +55,6 @@
   function Plugin(element, options) {
     this.element = $(element);
     this.options = $.extend( {}, defaults, options );
-    $body = $('body');
     this._defaults = defaults;
     this._name = pluginName;
     this.init();
@@ -70,9 +69,9 @@
 
       var _this = this;
 
-      var stepIndex = $body.data('stepIndex') === undefined ? 0 : $body.data('stepIndex'),
-          $stepTour = $('<div/>').addClass('tour step'+stepIndex),
-          top, left, width, height;
+      var $body = $('body'),
+          stepIndex = $body.data('stepIndex') === undefined ? 0 : $body.data('stepIndex'),
+          $stepTour = $('<div/>').addClass('tour step'+stepIndex);
 
       // TEXT
       var $text = $('<div/>').html('<p>'+this.options.text+'</p>')
@@ -139,7 +138,7 @@
       this.makeMask($stepTour);
 
       // Show only the first step
-      if (stepIndex == 0) {
+      if (stepIndex === 0) {
         $stepTour.css('visibility','visible');
       } else {
         $stepTour.css('visibility','hidden');
@@ -197,7 +196,8 @@
           $maskBottom = $mask.clone(),
           $maskLeft = $mask.clone(),
           padding = this.options.padding,
-          _this = this;
+          _this = this,
+          $body = $('body');
 
       //TOP MASK
       function top() {
@@ -267,7 +267,7 @@
 
     },
 
-    getCoordinate: function($el, spot, arrow) {
+    getCoordinate: function($el, spot) {
       /**
         Returns the coordinate (x,y) of element spot:
 
@@ -300,13 +300,25 @@
           center = left + $el.outerWidth()/2,
           right = left + $el.outerWidth();
 
-      if (spot.indexOf('T') >= 0) coord.y = top;
-      else if (spot.indexOf('B') >= 0 ) coord.y = bottom;
-      else coord.y = middle;
+      if (spot.indexOf('T') >= 0) {
+        coord.y = top;
+      }
+      else if (spot.indexOf('B') >= 0 ) {
+        coord.y = bottom;
+      }
+      else {
+        coord.y = middle;
+      }
 
-      if (spot.indexOf('L') >= 0 ) coord.x = left;
-      else if (spot.indexOf('R') >= 0 ) coord.x = right;
-      else coord.x = center;
+      if (spot.indexOf('L') >= 0 ) {
+        coord.x = left;
+      }
+      else if (spot.indexOf('R') >= 0 ) {
+        coord.x = right;
+      }
+      else {
+        coord.x = center;
+      }
 
       return coord;
     },
@@ -332,13 +344,25 @@
           width = $el.outerWidth(),
           height = $el.outerHeight();
 
-      if (spot.indexOf('T') >= 0 ) position.top = target.y;
-      else if (spot.indexOf('B') >= 0 ) position.top = target.y - height;
-      else position.top = target.y - height/2;
+      if (spot.indexOf('T') >= 0 ) {
+        position.top = target.y;
+      }
+      else if (spot.indexOf('B') >= 0 ) {
+        position.top = target.y - height;
+      }
+      else {
+        position.top = target.y - height/2;
+      }
 
-      if (spot.indexOf('L') >= 0 ) position.left = target.x;
-      else if (spot.indexOf('R') >= 0 ) position.left = target.x - width ;
-      else position.left = target.x - width/2;
+      if (spot.indexOf('L') >= 0 ) {
+        position.left = target.x;
+      }
+      else if (spot.indexOf('R') >= 0 ) {
+        position.left = target.x - width ;
+      }
+      else {
+        position.left = target.x - width/2;
+      }
 
       return position;
     }
